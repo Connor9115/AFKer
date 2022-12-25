@@ -1,4 +1,4 @@
-# AHKer
+# AFKer
 Want to spam left click automatically? Maybe you want to hold right click or spacebar? AHKer has you covered!
 
 ## DISCLAIMER
