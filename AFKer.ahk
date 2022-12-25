@@ -161,7 +161,7 @@ if (toggleShiftF10 || toggleF10)
 	SetTimer, clickSpam, %clickSpamDelay%
 return
 
-; Check if another feature is using the timer so it isn't disabled unintentionaly
+; Check if another feature is using the timer so it isn't disabled unintentionally
 TimerTest:
 if (antiAntiAFKusers = 0)
 	SetTimer, antiAntiAFK, off
