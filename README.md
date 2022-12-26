@@ -16,6 +16,6 @@ Please do not use this to ruin games for others!
 ### .exe
 + None
 
-## Which one?
+## .exe or .ahk?
 + If you don't have have AHK (or don't know if it's installed), download the .exe
 + If you have AHK installed, download either (.ahk is recommended so you can edit it yourself)
