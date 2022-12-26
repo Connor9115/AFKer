@@ -15,3 +15,7 @@ Please do not use this to ruin games for others!
 + Auto Hot Key (AHK)
 ### .exe
 + None
+
+## Which one?
++ If you don't have have AHK (or don't know if it's installed), download the .exe
++ If you have AHK installed, download either (.ahk is recommended so you can edit it yourself)
