@@ -7,14 +7,24 @@ SetWorkingDir %A_ScriptDir%
 MsgBox, 64, AFKer v1.1.0, WARNING: Raw Input should be turned OFF for the anti-AntiAFK measures to work as intended!`n`nWARNING: Shift+F10 deactivation may not work as intended. For this reason it is recommended to use without Shift`n`nPress F4 at any time to see controls.
 
 ; Ready Guis
+; delayInput
 Gui, delayInput:New, +AlwaysOnTop +ToolWindow -Caption
 Gui, delayInput:Add, Text, x12 y9 w170 h20, Enter left click delay: (default 300)
 Gui, delayInput:Add, Text, x12 y59 w170 h20, Enter right click delay: (default 300)
 Gui, delayInput:Add, Edit, x12 y29 w170 h20 +Limit5 +Number vLNewDelay, 300
 Gui, delayInput:Add, Edit, x12 y79 w170 h20 +Limit5 +Number vRNewDelay, 300
 Gui, delayInput:Add, Button, gDelayDone x59 y108 w78 h27, Done
+
+; bypassHelp
 Gui, bypassHelp:New, +AlwaysOnTop +ToolWindow -Caption
-Gui, bypassHelp:Add, Text,, There are two main types of AFK detection:`nKeypress based and mouse movement based. The AFK bypass (referred in the script as `"anti-AntiAFK`") bypasses mouse based.`n`nPress Shift+F4 to close this dialog.
+Gui, bypassHelp:Add, Text,, 
+(
+There are two main types of AFK detection:
+Keypress based and mouse movement based. The AFK bypass (referred in the script as `"anti-AntiAFK`") bypasses mouse based.
+`nPress Shift+F4 to close this dialog.
+)
+
+; controlHelp
 Gui, controlsHelp:New, +AlwaysOnTop +ToolWindow -Caption
 Gui, controlsHelp:Add, Text,, 
 (
@@ -240,12 +250,14 @@ if (toggleShiftF10 || toggleF10)
 	SetTimer, lclickSpam, %lclickSpamDelay%
 return
 
+; Reset right click spam speed
 +Pause::
 rclickSpamDelay := 300
 if (toggleShiftF10 || toggleF10)
 	SetTimer, rclickSpam, %lclickSpamDelay%
 return
 
+; Enter custom spam speeds
 !+Pause::
 Gui, delayInput:Show
 return
