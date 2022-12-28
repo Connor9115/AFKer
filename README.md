@@ -17,7 +17,7 @@ Please do not use this to ruin games for others!
 + None
 
 ## .exe or .ahk?
-+ If you don't have AHK installed (or don't know if it's installed)
++ If you don't have AHK v1.1 installed (or don't know if it's installed)
     + Download the .exe + OTA.ahk
 + If you have AHK installed
     + Download either + OTA.ahk (AFKer.ahk is recommended if you want to edit it yourself)
