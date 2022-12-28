@@ -27,7 +27,7 @@ if (latestVersion != version) {
 		wantUpdate := 1
 	if (wantUpdate) {
 		WinClose, AFKer.exe
-		UrlDownloadToFile, https://github.com/Connor9115/AFKer/releases/download/%latestVersion%/AFKer.exe, AFKer.exe
+		UrlDownloadToFile, https://github.com/Connor9115/AFKer/releases/latest/download/AFKer.exe, AFKer.exe
 		MsgBox, AFKer has been updated and will now restart.
 		Run, AFKer.exe
 	}
