@@ -6,7 +6,6 @@ DetectHiddenWindows, On
 SetTitleMatchMode 2
 
 version = %1%
-MsgBox, %version%
 
 ; Repo vars
 owner := "Connor9115"
