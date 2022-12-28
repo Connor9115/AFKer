@@ -2,6 +2,11 @@
 #NoEnv
 SendMode Input
 SetWorkingDir %A_ScriptDir%
+DetectHiddenWindows, On
+SetTitleMatchMode 2
+
+version = %1%
+MsgBox, %version%
 
 ; Repo vars
 owner := "Connor9115"
@@ -22,10 +27,10 @@ if (latestVersion != version) {
 	IfMsgBox Yes
 		wantUpdate := 1
 	if (wantUpdate) {
+		WinClose, AFKer.exe
 		UrlDownloadToFile, https://github.com/Connor9115/AFKer/releases/download/%latestVersion%/AFKer.exe, AFKer.exe
 		MsgBox, AFKer has been updated and will now restart.
 		Run, AFKer.exe
-		ExitApp
 	}
 }
 

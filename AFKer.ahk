@@ -4,8 +4,8 @@
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 
-version := "v1.1.2"
-#include OTA.ahk
+version := "v1.1.1"
+RunWait, OTA.ahk %version%
 
 ; Show start-up info
 MsgBox, 64, AFKer %version%, WARNING: Raw Input should be turned OFF for the anti-AntiAFK measures to work as intended!`n`nWARNING: Shift+F10 deactivation may not work as intended. For this reason it is recommended to use without Shift`n`nPress F4 at any time to see controls.
