@@ -3,6 +3,32 @@
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 
+; Version vars
+version := "v1.1.0"
+owner := "Connor9115"
+repo := "AFKer"
+
+; Get latest version
+res := WebRequest("https://api.github.com/repos/" . owner . "/" . repo . "/releases/latest",,,, error := "")
+if error
+	MsgBox,, Error, % error . "`n`nresponse:`n" . res
+else
+	pos := RegExMatch(res, """tag_name"":\s*""\K[^""]*", ver)
+
+; If newer version, ask to update
+latestVersion := (pos ? ver : "not found")
+if (latestVersion != version) {
+	wantUpdate := 0
+	MsgBox, 4, New Version Available, A new version has been found!`nNew Version: %latestVersion% `nCurrent Version: %version%
+	IfMsgBox Yes
+		wantUpdate := 1
+	if (wantUpdate) {
+		UrlDownloadToFile, https://github.com/Connor9115/AFKer/releases/latest/download/AFKer.exe, AFKer.exe
+		MsgBox, AFKer has been updated and will now close. Please reopen the script manually.
+		ExitApp
+	}
+}
+
 ; Show start-up info
 MsgBox, 64, AFKer v1.1.0, WARNING: Raw Input should be turned OFF for the anti-AntiAFK measures to work as intended!`n`nWARNING: Shift+F10 deactivation may not work as intended. For this reason it is recommended to use without Shift`n`nPress F4 at any time to see controls.
 
@@ -262,6 +288,22 @@ return
 Gui, delayInput:Show
 return
 
+; Fetch 
+WebRequest(url, method := "GET", HeadersArray := "", body := "", ByRef error := "") {
+   Whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+   Whr.Open(method, url, true)
+   for name, value in HeadersArray
+      Whr.SetRequestHeader(name, value)
+   Whr.Send(body)
+   Whr.WaitForResponse()
+   status := Whr.status
+   if (status != 200)
+      error := "HttpRequest error, status: " . status
+   Arr := Whr.responseBody
+   pData := NumGet(ComObjValue(arr) + 8 + A_PtrSize)
+   length := Arr.MaxIndex() + 1
+   Return StrGet(pData, length, "UTF-8")
+}
 DelayDone:
 Gui, Submit
 lclickSpamDelay := LNewDelay
