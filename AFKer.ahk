@@ -4,7 +4,7 @@ SendMode Input
 SetWorkingDir %A_ScriptDir%
 
 ; Version vars
-version := "v1.1.0"
+version := "v1.1.1"
 owner := "Connor9115"
 repo := "AFKer"
 
@@ -30,7 +30,7 @@ if (latestVersion != version) {
 }
 
 ; Show start-up info
-MsgBox, 64, AFKer v1.1.0, WARNING: Raw Input should be turned OFF for the anti-AntiAFK measures to work as intended!`n`nWARNING: Shift+F10 deactivation may not work as intended. For this reason it is recommended to use without Shift`n`nPress F4 at any time to see controls.
+MsgBox, 64, AFKer %version%, WARNING: Raw Input should be turned OFF for the anti-AntiAFK measures to work as intended!`n`nWARNING: Shift+F10 deactivation may not work as intended. For this reason it is recommended to use without Shift`n`nPress F4 at any time to see controls.
 
 ; Ready Guis
 ; delayInput
