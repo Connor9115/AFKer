@@ -4,7 +4,7 @@
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 
-version := "v1.1.1"
+version := "v1.1.2"
 RunWait, OTA.ahk %version%
 
 ; Show start-up info
