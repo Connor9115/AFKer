@@ -45,7 +45,7 @@ Keypress based and mouse movement based. The AFK bypass (referred in the script 
 `nPress Shift+F4 to close this dialog.
 )
 
-; controlHelp
+; controlsHelp
 Gui, controlsHelp:New, +AlwaysOnTop +ToolWindow -Caption
 Gui, controlsHelp:Add, Text,, 
 (
@@ -217,6 +217,7 @@ return
 	Gui, delayInput:Destroy
 	Gui, bypassHelp:Destroy
 	RunWait, OTA.ahk %version%
+	MsgBox, Currently on the latest version.
 	Goto, ReadyGuis
 return
 
