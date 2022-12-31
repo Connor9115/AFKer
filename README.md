@@ -18,9 +18,11 @@ Please do not use this to ruin games for others!
 
 ## .exe or .ahk?
 + If you don't have AHK v1.1 installed (or don't know if it's installed)
-    + Download the .exe + OTA.ahk
+    + Download the .exe + OTA.exe
 + If you have AHK installed
-    + Download either + OTA.ahk (AFKer.ahk is recommended if you want to edit it yourself)
+    + Download either AFKer file + OTA file (AFKer.ahk is recommended if you want to edit it yourself*)
+
+*NOTE: Automatic updates are not supported for .ahk versions
 
 ## Windows SmartScreen/Anti-virus intervention
 This app is not verified by Microsoft thus SmartScreen picks it up. As for AVs, that's down to AHK itself, all AHK scripts are flagged. If either of these things make you feel too uncomfortable feel free to read over my code or use another AFK script/auto-clicker (or better yet, make your own!)
