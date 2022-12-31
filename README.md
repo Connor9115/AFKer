@@ -8,7 +8,7 @@ Please do not use this to ruin games for others!
 + Automatically holds right click and/or spacebar
 + Automatically spams left click or right click at an adjustable speed
 + Optional AFK detection bypasser
-+ Multiple AFK feautures at the same time! Want to spam left click while holding space? Done. Spam left while holding right click? You betcha.
++ Multiple AFK features at the same time! Want to spam left click while holding space? Done. Spam left while holding right click? You betcha.
 
 ## Dependencies
 ### .ahk
