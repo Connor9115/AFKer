@@ -4,13 +4,30 @@
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 
-version := "v1.1.2"
+; Version/update checks
+version := "v1.1.3"
 RunWait, OTA.ahk %version%
 
 ; Show start-up info
 MsgBox, 64, AFKer %version%, WARNING: Raw Input should be turned OFF for the anti-AntiAFK measures to work as intended!`n`nWARNING: Shift+F10 deactivation may not work as intended. For this reason it is recommended to use without Shift`n`nPress F4 at any time to see controls.
 
-; Ready Guis
+; Ready vars
+moveMouseDistance := 1
+lclickSpamDelay := 300
+rclickSpamDelay := 300
+antiAntiAFKusers := 0
+toggleShiftF4 := 0
+toggleF4 := 0
+toggleShiftF8 := 0
+toggleF8 := 0
+toggleAltShiftF8 := 0
+toggleAltF8 := 0
+toggleShiftF9 := 0
+toggleF9 := 0
+toggleShiftF10 := 0
+toggleF10 := 0
+
+ReadyGuis:
 ; delayInput
 Gui, delayInput:New, +AlwaysOnTop +ToolWindow -Caption
 Gui, delayInput:Add, Text, x12 y9 w170 h20, Enter left click delay: (default 300)
@@ -40,6 +57,7 @@ F9: Hold jump WITH anti-AntiAFK
 F10: Rapidly press left mouse button WITH anti-AntiAFK
 Shift+Alt+F10: Show current click spam speed
 Shift+F8/F9/F10: Do the corresponding action WITHOUT anti-AntiAFK
+Shift+F12: Force check for update
 Alt+Shift+F12: Suspend the script
 Ctrl+Alt+Shift+F12: Exit the this script
 Home: Increase LEFT click spam speed by 100ms
@@ -50,22 +68,6 @@ Pause: Reset LEFT click spam speed to default (300ms)
 Shift+Pause: Reset RIGHT click spam speed to default (300ms)
 Alt+Shift+Pause: Enter custom right and left spam speed in milliseconds
 )
-
-; Ready vars
-moveMouseDistance := 1
-lclickSpamDelay := 300
-rclickSpamDelay := 300
-antiAntiAFKusers := 0
-toggleShiftF4 := 0
-toggleF4 := 0
-toggleShiftF8 := 0
-toggleF8 := 0
-toggleAltShiftF8 := 0
-toggleAltF8 := 0
-toggleShiftF9 := 0
-toggleF9 := 0
-toggleShiftF10 := 0
-toggleF10 := 0
 
 ; Controls help dialog
 F4::
@@ -207,6 +209,15 @@ return
 !+F10::
 	if (!toggleF10 || !toggleShiftF10)
 		MsgBox, Left click spam delay: %lclickSpamDelay%ms`nRight click spam delay: %rclickSpamDelay%ms
+return
+
+; Force check for OTA update
++F12::
+	Gui, controlsHelp:Destroy
+	Gui, delayInput:Destroy
+	Gui, bypassHelp:Destroy
+	RunWait, OTA.ahk %version%
+	Goto, ReadyGuis
 return
 
 ; "Can I haz keys back?" (Suspends the script)
